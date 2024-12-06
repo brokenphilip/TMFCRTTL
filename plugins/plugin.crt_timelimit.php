@@ -192,14 +192,13 @@ function crttl_OnEndRace_Post($aseco)
 					}
 					
 					// take the average round points for first and second place
+					$avg_pts = floatval($pts_1st + $pts_2nd) / 2.0;
+					
+					// and then multiply the average by our "rounds per challenge"
 					// the idea is to account for back-and-forth 1st, 2nd, 1st, 2nd... place each round
 					// it's not perfect but it's good enough for our use case
 					// some tracks will end before our time limit, but in turn, going way over the time limit will be rarer
-					$avg_pts = floatval($pts_1st + $pts_2nd) / 2.0;
-					
-					// multiply them by "rounds per challenge", minus one round, and finally add one more point for good measure :3
-					// example: if "RPC" is 5, and we don't have custom points (ie. using default), point limit will be (8*4)+1 = 33
-					$pl = ($avg_pts * ($rpc - 1)) + 1;
+					$pl = $avg_pts * $rpc;
 					
 					$message = formatText('{#server}>> {#admin}Calculated {#highlite}{1}{#admin} round(s) per challenge - points limit set to {#highlite}{2}', $rpc, $pl);
 					$aseco->client->query('ChatSendServerMessage', $aseco->formatColors($message));
