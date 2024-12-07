@@ -136,8 +136,6 @@ function crttl_OnEndRace_Post($aseco)
 				// - 300 divided by 85 is 3.53 - thus "rounds per challenge" will be 4 (as we can start 4 races in that time)
 				$rpc = ceil(floatval($crt_timelimit * 60) / ($at + $ft + $crt_it));
 				
-				var_dump($crt_it);
-				
 				if ($is_cup)
 				{
 					// first, deduct warm-up rounds from the "rounds per challenge"
