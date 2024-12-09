@@ -17,12 +17,12 @@ function chat_crt_timelimit($aseco, $command)
 	{
 		if ($crt_timelimit > 0)
 		{
-			$message = formatText('{#server}>> {#admin}CRT time limit is {#highlite}{1}{#admin} minutes', $crt_timelimit);
+			$message = formatText('{#server}>> {#emotic}CRT time limit is {#highlite}{1}{#emotic} minutes.', $crt_timelimit);
 			$aseco->client->query('ChatSendServerMessageToLogin', $aseco->formatColors($message), $client->login);
 		}
 		else
 		{
-			$message = formatText('{#server}>> {#admin}CRT time limit is not set', $crt_timelimit);
+			$message = formatText('{#server}>> {#emotic}CRT time limit is not set.', $crt_timelimit);
 			$aseco->client->query('ChatSendServerMessageToLogin', $aseco->formatColors($message), $client->login);
 		}
 		return;
@@ -117,7 +117,7 @@ function crttl_OnEndRace_Post($aseco)
 				// if not 0 or 1, it is taken directly as a value in milliseconds
 				
 				// first, announce CRT time limit, next AT and next finish timeout (FT) to all in chat
-				$message = formatText('{#server}>> {#admin}CRT time limit is {#highlite}{1}{#admin} minutes, next track AT is {#highlite}{2}{#admin}, finish timeout is {#highlite}{3}{#admin}...',
+				$message = formatText('{#server}>> {#emotic}CRT time limit is {#highlite}{1}{#emotic} minutes, next track AT is {#highlite}{2}{#emotic}, finish timeout is {#highlite}{3}{#emotic}...',
 					$crt_timelimit, crt_formatTime($at), crt_formatTime($ft, false));
 				$aseco->client->query('ChatSendServerMessage', $aseco->formatColors($message));
 				
@@ -152,7 +152,7 @@ function crttl_OnEndRace_Post($aseco)
 						$rpc -= $wu;
 					}
 					
-					$message = formatText('{#server}>> {#admin}Calculated and set rounds per challenge to {#highlite}{1}', $rpc);
+					$message = formatText('{#server}>> {#emotic}Calculated and set rounds per challenge to {#highlite}{1}', $rpc);
 					$aseco->client->query('ChatSendServerMessage', $aseco->formatColors($message));
 					
 					// directly set cup rounds per challenge from our value
@@ -198,7 +198,7 @@ function crttl_OnEndRace_Post($aseco)
 					// some tracks will end before our time limit, but in turn, going way over the time limit will be rarer
 					$pl = $avg_pts * $rpc;
 					
-					$message = formatText('{#server}>> {#admin}Calculated {#highlite}{1}{#admin} round(s) per challenge - points limit set to {#highlite}{2}', $rpc, $pl);
+					$message = formatText('{#server}>> {#emotic}Calculated {#highlite}{1}{#emotic} round(s) per challenge - points limit set to {#highlite}{2}', $rpc, $pl);
 					$aseco->client->query('ChatSendServerMessage', $aseco->formatColors($message));
 					
 					// set point limit according to above formula
@@ -227,7 +227,7 @@ function crttl_OnEndRace_Post($aseco)
 					// as draws do not affect either team points at all, they will unfortunately be an outlier
 					$pl = ceil(floatval($rpc) / 2.0);
 					
-					$message = formatText('{#server}>> {#admin}Calculated {#highlite}{1}{#admin} round(s) per challenge - points limit set to {#highlite}{2}', $rpc, $pl);
+					$message = formatText('{#server}>> {#emotic}Calculated {#highlite}{1}{#emotic} round(s) per challenge - points limit set to {#highlite}{2}', $rpc, $pl);
 					$aseco->client->query('ChatSendServerMessage', $aseco->formatColors($message));
 					
 					// set point limit according to above formula
