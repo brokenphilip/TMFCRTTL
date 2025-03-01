@@ -1,9 +1,6 @@
 # TMFCRTTL
 A TrackMania (Nations/United) Forever server (XASECO) plugin which calculates rounds per challenge (for Cup) or points limit (for Rounds/Team), according to an admin-defined custom time limit, based on the duration (author time) of the track, as well as the finish timeout (ie. the countdown that starts once the first player finishes the track, after which all other unfinished players retire).
 
-> [!NOTE]
-> This repository is currently an **early work-in-progress**, any and all information is subject to change without notice and may be missing or incorrect.
-
 ## Calculations
 The formula for "rounds per challenge" (RPC) is as follows:
 ```
